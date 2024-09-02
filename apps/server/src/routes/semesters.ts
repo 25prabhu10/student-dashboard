@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { type Semester, createSemesterPostSchema } from 'common'
+import { type Semester, createSemesterPostSchema } from '@student-ui/common'
 import { Hono } from 'hono'
 
 const fakeSemesters: Semester[] = [

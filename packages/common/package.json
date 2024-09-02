@@ -1,5 +1,5 @@
 {
-  "name": "common",
+  "name": "@student-ui/common",
   "module": "index.ts",
   "type": "module",
   "devDependencies": {

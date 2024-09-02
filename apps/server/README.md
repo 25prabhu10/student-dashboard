@@ -1,4 +1,4 @@
-# Backend
+# Server
 
 Student dashboard API written using [Hono](https://hono.dev/)
 

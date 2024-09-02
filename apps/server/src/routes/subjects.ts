@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { type Subject, createSubjectPostSchema } from 'common'
+import { type Subject, createSubjectPostSchema } from '@student-ui/common'
 import { Hono } from 'hono'
 
 const fakeSubjects: Subject[] = [

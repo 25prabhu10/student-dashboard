@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { type Student, createStudentPostSchema } from 'common'
+import { type Student, createStudentPostSchema } from '@student-ui/common'
 import { Hono } from 'hono'
 
 const fakeStudents: Student[] = [{ id: 1, name: 'John Doe' }]

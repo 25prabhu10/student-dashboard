@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { type Test, createTestPostSchema } from 'common'
+import { type Test, createTestPostSchema } from '@student-ui/common'
 import { Hono } from 'hono'
 
 const fakeTests: Test[] = [

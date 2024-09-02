@@ -11,13 +11,15 @@ const app = new Hono()
 
 app.use(logger())
 
-app.route('/api/marksSheets', marksSheetsRoute)
-app.route('/api/semesters', semestersRoute)
-app.route('/api/students', studentsRoute)
-app.route('/api/subjects', subjectsRoute)
-app.route('/api/tests', testsRoute)
+export const apiRoutes = app
+  .basePath('/api')
+  .route('/marksSheets', marksSheetsRoute)
+  .route('/semesters', semestersRoute)
+  .route('/students', studentsRoute)
+  .route('/subjects', subjectsRoute)
+  .route('/tests', testsRoute)
 
-app.use(serveStatic({ root: '../frontend/dist' }))
-app.get(serveStatic({ path: '../frontend/dist/index.html' }))
+app.use(serveStatic({ root: '../client/dist' }))
+app.get(serveStatic({ path: '../client/dist/index.html' }))
 
 export default app

@@ -1,5 +1,5 @@
 import { zValidator } from '@hono/zod-validator'
-import { type MarksSheet, createMarksSheetPostSchema } from 'common'
+import { type MarksSheet, createMarksSheetPostSchema } from '@student-ui/common'
 import { Hono } from 'hono'
 
 const fakeMarksSheets: MarksSheet[] = [

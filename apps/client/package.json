@@ -1,6 +1,5 @@
 {
-  "name": "frontend",
-  "private": true,
+  "name": "@student-ui/client",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -12,6 +11,8 @@
   "dependencies": {
     "@radix-ui/react-select": "^2.1.1",
     "@radix-ui/react-tabs": "^1.1.0",
+    "@student-ui/common": "workspace:*",
+    "@student-ui/server": "workspace:*",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.438.0",
