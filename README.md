@@ -1,4 +1,4 @@
-# student-dashboard
+# Student Dashboard
 
 A simple student dashboard to manage student's academic details
 

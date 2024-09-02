@@ -1,4 +1,4 @@
-# common
+# Common
 
 Contains all the common code shared between front-end and back-end
 
