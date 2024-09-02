@@ -1,0 +1,19 @@
+{
+  "name": "hono-react",
+  "private": true,
+  "module": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "clean": "rm -rf node_modules packages/*/node_modules bun.lockb packages/*/bun.lockb"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.3.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
