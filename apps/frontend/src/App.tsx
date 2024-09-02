@@ -7,6 +7,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import type { Student } from 'common'
 import { Activity, BarChart, Users } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
@@ -14,14 +15,13 @@ function App() {
   const [selectedStudent, setSelectedStudent] = useState('1')
   const [selectedSemester, setSelectedSemester] = useState('1')
   const [selectedSubject, setSelectedSubject] = useState('math')
-  const [students] = useState([{ id: 1, name: 'John Doe' }])
+  const [students, setStudents] = useState<Student[]>()
 
   useEffect(() => {
     const getStudents = async () => {
-      // TODO: fetch students list
-      // const resData = await fetch('/api/students')
-      // const studentsData: Student[] = await resData.json()
-      // setStudents(studentsData)
+      const resData = await fetch('/api/students')
+      const studentsData: Student[] = await resData.json()
+      setStudents(studentsData)
     }
 
     getStudents()
