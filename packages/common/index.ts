@@ -1,0 +1,5 @@
+export * from './src/MarksSheet'
+export * from './src/Semester'
+export * from './src/Student'
+export * from './src/Subject'
+export * from './src/Test'
