@@ -7,13 +7,10 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import client from '@/lib/api'
 import { type Student } from '@student-ui/common'
-import { type APIRoutes } from '@student-ui/server'
-import { hc } from 'hono/client'
 import { Activity, BarChart, Users } from 'lucide-react'
 import { useEffect, useState } from 'react'
-
-const client = hc<APIRoutes>('/')
 
 function App() {
   const [selectedStudent, setSelectedStudent] = useState('1')
@@ -23,7 +20,7 @@ function App() {
 
   useEffect(() => {
     const getStudents = async () => {
-      const resData = await client.api.students.$get()
+      const resData = await client.students.$get()
       const studentsData: Student[] = await resData.json()
       setStudents(studentsData)
     }
