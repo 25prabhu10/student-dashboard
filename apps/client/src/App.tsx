@@ -1,3 +1,4 @@
+import { getStudentList } from '@/api/students'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import {
   Select,
@@ -6,27 +7,36 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { LoadingSpinner } from '@/components/ui/spinner'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import client from '@/lib/api'
-import { type Student } from '@student-ui/common'
+import { useQuery } from '@tanstack/react-query'
 import { Activity, BarChart, Users } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 function App() {
   const [selectedStudent, setSelectedStudent] = useState('1')
   const [selectedSemester, setSelectedSemester] = useState('1')
   const [selectedSubject, setSelectedSubject] = useState('math')
-  const [students, setStudents] = useState<Student[]>()
 
-  useEffect(() => {
-    const getStudents = async () => {
-      const resData = await client.students.$get()
-      const studentsData: Student[] = await resData.json()
-      setStudents(studentsData)
-    }
+  const {
+    isPending,
+    error,
+    data: students,
+  } = useQuery({
+    queryKey: ['students'],
+    queryFn: getStudentList,
+  })
 
-    getStudents()
-  }, [])
+  if (isPending)
+    return (
+      <div className="flex h-screen bg-gray-100">
+        <div className="flex-1 p-8 self-center">
+          <LoadingSpinner className="m-auto" />
+        </div>
+      </div>
+    )
+
+  if (error) return <p>{JSON.stringify(error, null, 2)}</p>
 
   const semesters = ['1', '2', '3', '4']
   const subjects = ['math', 'science', 'history', 'literature']
@@ -40,7 +50,7 @@ function App() {
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Main Content */}
-      <div className="flex-1 p-8 overflow-auto">
+      <div className="flex-1 p-8">
         <h1 className="text-3xl font-bold mb-6">Student Dashboard</h1>
 
         {/* Filters */}

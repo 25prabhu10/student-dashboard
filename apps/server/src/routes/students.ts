@@ -6,7 +6,11 @@ const fakeStudents: Student[] = [{ id: 1, name: 'John Doe' }]
 
 const studentsRoute = new Hono()
   // retrieve all students
-  .get('/', (c) => c.json(fakeStudents))
+  .get('/', async (c) => {
+    await new Promise((r) => setTimeout(r, 2000))
+
+    return c.json(fakeStudents)
+  })
 
   // add a new student
   .post('/', zValidator('json', createStudentPostSchema), async (c) => {
